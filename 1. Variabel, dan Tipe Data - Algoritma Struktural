@@ -1,0 +1,23 @@
+1. Berikut adalah pseudocode dan flowchart untuk proses login aplikasi dengan verifikasi OTP:
+Pseudocode:
+python
+1. Input username and password
+2. Check if username and password are correct
+3. If correct, generate OTP and send it to user's phone number
+4. Input OTP from user
+5. Check if OTP is correct
+6. If correct, login successful
+7. If incorrect, login failed
+
+Berikut adalah ilustrasi dari proses login aplikasi dengan verifikasi OTP:
+Flowchart Login dengan Verifikasi OTP
+Pada awalnya, pengguna diminta untuk memasukkan username dan password. Kemudian, sistem akan memeriksa apakah username dan password
+yang dimasukkan benar atau tidak. Jika benar, sistem akan mengirimkan OTP ke nomor telepon pengguna yang terdaftar.
+Pengguna kemudian diminta untuk memasukkan OTP yang diterima. Sistem akan memeriksa apakah OTP yang dimasukkan benar atau tidak.
+Jika benar, pengguna berhasil login dan diarahkan ke halaman utama aplikasi. Namun, jika OTP yang dimasukkan salah,
+pengguna gagal login dan diminta untuk memasukkan kembali username dan password atau menghubungi customer service untuk bantuanlebih lanjut.
+
+2. Flowchart:
+Flowchart Login dengan Verifikasi OTP
+Jika login berhasil setelah verifikasi OTP, maka pengguna akan diarahkan ke halaman utama aplikasi. Namun, jika login gagal setelah verifikasi OTP,
+maka pengguna akan diminta untuk memasukkan kembali username dan password atau menghubungi customer service untuk bantuan lebih lanjut.
