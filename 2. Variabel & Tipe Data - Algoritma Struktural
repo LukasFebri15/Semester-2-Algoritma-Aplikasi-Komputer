@@ -1,0 +1,115 @@
+1. Menghitung Biaya parkir
+Inputan :
+jamMasuk, jamKeluar, BiayaPerjam
+
+Contoh :
+jamMasuk : 7
+jamKeluar : 12
+BiayaPerjam : 2000
+
+Maka Biaya Parkir = 10.000
+
+
+Kode-Nya;
+---------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class ParkingFeeCalculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the entry time (in hours): ");
+        int entryTime = input.nextInt();
+
+        System.out.print("Enter the exit time (in hours): ");
+        int exitTime = input.nextInt();
+
+        System.out.print("Enter the hourly rate: ");
+        int hourlyRate = input.nextInt();
+
+        int parkingDuration = exitTime - entryTime;
+        int parkingFee = parkingDuration * hourlyRate;
+
+        System.out.println("Parking duration: " + parkingDuration + " hours");
+        System.out.println("Parking fee: " + parkingFee);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------
+
+2.    Buatlah program untuk menghitung Gaji dan Lembur di perusahaan A
+Inputan : 
+Gaji, JamLembur, UpahLembur
+
+Contoh :
+Gaji = 3.500.000
+JamLembur : 8¬
+UpahLembur : 50.000
+
+Maka Gaji yang diterima adalah 3.900.000
+
+
+KodeNya:
+------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class SalaryCalculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter base salary: ");
+        double baseSalary = input.nextDouble();
+
+        System.out.print("Enter overtime hours: ");
+        double overtimeHours = input.nextDouble();
+
+        System.out.print("Enter overtime pay rate: ");
+        double overtimePayRate = input.nextDouble();
+
+        double overtimePay = overtimeHours * overtimePayRate;
+        double totalSalary = baseSalary + overtimePay;
+
+        System.out.println("Overtime pay: " + overtimePay);
+        System.out.println("Total salary: " + totalSalary);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------
+
+3.    Menghitung Lembar uang kertas
+Inputan :
+Nominial
+
+Contoh :
+Nominal : 79500
+
+Maka Outputnya
+1 lembar 50ribuan
+1 lembar 20ribuan
+1 lembar 5ribuan
+2 lembar 2ribuan
+1 keping 500an
+
+
+KodeNya
+------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class BanknoteCounter {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter amount: ");
+        int amount = input.nextInt();
+
+        int[] denominations = {50000, 20000, 10000, 5000, 2000, 1000};
+        int[] counts = new int[denominations.length];
+
+        for (int i = 0; i < denominations.length; i++) {
+            counts[i] = amount / denominations[i];
+            amount %= denominations[i];
+            if (counts[i] > 0) {
+                System.out.println(counts[i] + " banknote(s) of " + denominations[i]);
+            }
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------
