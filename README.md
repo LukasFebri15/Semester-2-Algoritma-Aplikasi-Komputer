@@ -1,1 +1,0 @@
-# Semeter-2-Algoritma-Strutural
