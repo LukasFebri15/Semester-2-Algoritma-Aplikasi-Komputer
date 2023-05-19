@@ -1,0 +1,129 @@
+1. Membuat Input ArrayList, Buatlah script java untuk membuat perpustakaan online sederhana untuk mengkategorikan buku yang tersedia.
+Kategori : 1 = Teknik 2 = Manajemen 3 = Fiksi 4 = Lainnya
+
+KodeNya:
+----------------------------------------------------------------------------------------------------------------------------------------
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Book {
+    private String title;
+    private String author;
+    private String publisher;
+    private int year;
+    private int category;
+
+    public Book(String title, String author, String publisher, int year, int category) {
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.year = year;
+        this.category = category;
+    }
+
+    // Getters and setters for book attributes
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Book> books = new ArrayList<>();
+
+        while (true) {
+            System.out.print("Enter the title of the book (or 'exit' to quit): ");
+            String title = scanner.nextLine();
+            if (title.equals("exit")) {
+                break;
+            }
+
+            System.out.print("Enter the author of the book: ");
+            String author = scanner.nextLine();
+
+            System.out.print("Enter the publisher of the book: ");
+            String publisher = scanner.nextLine();
+
+            System.out.print("Enter the year of publication: ");
+            int year = scanner.nextInt();
+            scanner.nextLine();
+
+            System.out.print("Enter the category of the book (1=Teknik, 2=Manajemen, 3=Fiksi, 4=Lainnya): ");
+            int category = scanner.nextInt();
+            scanner.nextLine();
+
+            Book book = new Book(title, author, publisher, year, category);
+            books.add(book);
+        }
+
+        // Categorize books based on their category attribute
+        int[] categories = new int[5];
+        for (Book book : books) {
+            categories[book.getCategory()]++;
+        }
+
+        // Display list of available books and number of books in each category
+        System.out.println("\nDaftar Buku Java yang Tersedia\n");
+        System.out.println("No\tJudul\t\t\tPengarang\t\tPenerbit\tTahun\tKategori");
+        System.out.println("=======================================================================================");
+        for (int i = 0; i < books.size(); i++) {
+            Book book = books.get(i);
+            System.out.printf("%d\t%-20s\t%-20s\t%-20s\t%d\t%s\n", i+1, book.getTitle(), book.getAuthor(), book.getPublisher(), book.getYear(), getCategoryName(book.getCategory()));
+        }
+        System.out.println("\nJumlah buku yang tersedia : " + books.size());
+        System.out.println("Buku Teknik : " + categories[1]);
+        System.out.println("Buku Manajemen : " + categories[2]);
+        System.out.println("Buku Fiksi : " + categories[3]);
+        System.out.println("Buku Lainnya : " + categories[4]);
+    }
+
+    // Helper method to get category name based on its code
+    private static String getCategoryName(int category) {
+        switch (category) {
+            case 1:
+                return "Teknik";
+            case 2:
+                return "Manajemen";
+            case 3:
+                return "Fiksi";
+            case 4:
+                return "Lainnya";
+            default:
+                return "";
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------
+
+HasilNya:
+----------------------------------------------------------------------------------------------------------------------------------------
+1)
+judul : PBO dengan Java
+Author : Abdul Kadir
+Penerbit : Erlangga
+Kategori : 1
+Tahun : 2008
+2)
+judul : Dasar Pemrograman
+Author : Indrijani
+Penerbit : Erlangga
+Kategori : 1
+Tahun : 2020
+3)
+judul : Si Doel
+Author : Indrijani
+Penerbit : Balai Pustaka
+Kategori : 3
+Tahun : 1932
+======================================================================================
+Daftar Buku Java yang Tersedia
+======================================================================================
+No Judul Pengarang Penerbit Tahun Kategori
+======================================================================================
+1 PBO dengan Java Indrajani Elexmedia 2007 Teknik
+2 Dasar Pemrograman Java Abdul Kadir Andi Offset 2004 Teknik
+3 Komputer & Pemrograman Abdul Kadir Andi Offset 2003 Fiksi
+Jumlah buku yang tersedia : 3
+Buku Teknik : 2
+Buku Manajemen : 0
+Buku Fiksi : 1
+Buku Lainnya : 0
+Buku Lawas : 1
+Buku Baru : 2
+----------------------------------------------------------------------------------------------------------------------------------------
