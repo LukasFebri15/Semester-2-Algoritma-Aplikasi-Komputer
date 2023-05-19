@@ -1,0 +1,203 @@
+1. Buatlah Program untuk Menerapkan Algoritma Merge Sore dan Heap Sort berikut parameter ascending dan descending?
+
+[ Merge Sort ]
+KodeNya:
+--------------------------------------------------------------------------------------------------------------------------------------
+package Sort;
+
+class MergeSort {
+    void merge(int arr[], int l, int m, int r, String param) {
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+
+        for (int i = 0; i < n1; i++)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; j++)
+            R[j] = arr[m + 1 + j];
+
+        int i = 0, j = 0;
+
+        int k = l;
+        if (param.equals("asc")) {
+            while (i < n1 && j < n2) {
+                if (L[i] <= R[j])
+                    arr[k++] = L[i++];
+                else
+                    arr[k++] = R[j++];
+            }
+            while (i < n1) {
+                arr[k] = L[i];
+                i++;
+                k++;
+            }
+            while (j < n2) {
+                arr[k] = R[j];
+                j++;
+                k++;
+            }
+        } else {
+            while (i < n1 && j < n2) {
+                if (L[i] >= R[j])
+                    arr[k++] = L[i++];
+                else
+                    arr[k++] = R[j++];
+            }
+            while (i < n1) {
+                arr[k] = L[i];
+                i++;
+                k++;
+            }
+            while (j < n2) {
+                arr[k] = R[j];
+                j++;
+                k++;
+            }
+        }
+    }
+
+    void sort(int arr[], int l, int r, String param) {
+        if (l < r) {
+            int m = l + (r - l) / 2;
+
+            sort(arr, l, m, param);
+            sort(arr, m + 1, r, param);
+
+            merge(arr, l, m, r, param);
+        }
+    }
+
+    public static void main(String args[]) throws Exception {
+        int arr[] = { 12, 11, 13, 5, 6, 7 };
+
+        System.out.println("Given Array");
+        printArray(arr);
+
+        MergeSort ob = new MergeSort();
+        ob.sort(arr, 0, arr.length - 1, "asc");
+
+        System.out.println("\nSorted Array (Ascending)");
+        printArray(arr);
+
+        ob.sort(arr, 0, arr.length - 1, "desc");
+
+        System.out.println("\nSorted Array (Descending)");
+        printArray(arr);
+    }
+
+    private static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+
+HasilNya:
+--------------------------------------------------------------------------------------------------------------------------------------
+Given Array
+12 11 13 5 6 7 
+
+Sorted Array (Ascending)
+5 6 7 11 12 13 
+
+Sorted Array (Descending)
+13 12 11 7 6 5
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+2. Buatlah Program untuk Menerapkan Algoritma Merge Sore dan Heap Sort berikut parameter ascending dan descending?
+
+[ Heap Sort ]
+KodeNya:
+--------------------------------------------------------------------------------------------------------------------------------------
+package Sort;
+
+public class HeapSort {
+    public void sort(int arr[], String param) {
+        int N = arr.length;
+
+        for (int i = N / 2 - 1; i >= 0; i--)
+            heapify(arr, N, i, param);
+
+        for (int i = N - 1; i > 0; i--) {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            heapify(arr, i, 0, param);
+        }
+    }
+
+    void heapify(int arr[], int N, int i, String param) {
+        int largest = i;
+        int smallest = i;
+        int l = 2 * i + 1;
+        int r = 2 * i + 2;
+
+        if (param.equals("asc")) {
+            if (l < N && arr[l] > arr[largest])
+                largest = l;
+
+            if (r < N && arr[r] > arr[largest])
+                largest = r;
+
+            if (largest != i) {
+                int swap = arr[i];
+                arr[i] = arr[largest];
+                arr[largest] = swap;
+
+                heapify(arr, N, largest, param);
+            }
+        } else if (param.equals("desc")) {
+            if (l < N && arr[l] < arr[smallest])
+                smallest = l;
+
+            if (r < N && arr[r] < arr[smallest])
+                smallest = r;
+
+            if (smallest != i) {
+                int swap = arr[i];
+                arr[i] = arr[smallest];
+                arr[smallest] = swap;
+
+                heapify(arr, N, smallest, param);
+            }
+        }
+    }
+
+    static void printArray(int arr[]) {
+        int N = arr.length;
+
+        for (int i = 0; i < N; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+
+    public static void main(String args[]) {
+        int arr[] = { 12, 11, 13, 5, 6, 7 };
+        HeapSort ob = new HeapSort();
+
+        ob.sort(arr, "asc");
+
+        System.out.println("Sorted array (Ascending):");
+        printArray(arr);
+
+        ob.sort(arr, "desc");
+
+        System.out.println("Sorted array (Descending):");
+        printArray(arr);
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+
+HasilNya:
+--------------------------------------------------------------------------------------------------------------------------------------
+Sorted array (Ascending):
+5 6 7 11 12 13 
+Sorted array (Descending):
+13 12 11 7 6 5 
+--------------------------------------------------------------------------------------------------------------------------------------
