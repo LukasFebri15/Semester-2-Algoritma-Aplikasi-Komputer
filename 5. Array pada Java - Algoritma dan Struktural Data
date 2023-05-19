@@ -1,0 +1,65 @@
+1. Kata ke-2: pensil
+Kata ke-3: pulpen
+Kata ke-4: tipex
+Kata ke-5: penggaris
+
+Kata-kata yang dimasukan
+null
+buku
+pensil
+pulpen
+tipex
+penggaris
+
+KodeNya:
+-------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class InputExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the price of pensil: ");
+        double pensilPrice = scanner.nextDouble();
+        
+        System.out.print("Enter the quantity of pensil: ");
+        int pensilQuantity = scanner.nextInt();
+        
+        System.out.print("Enter the price of pulpen: ");
+        double pulpenPrice = scanner.nextDouble();
+        
+        System.out.print("Enter the quantity of pulpen: ");
+        int pulpenQuantity = scanner.nextInt();
+        
+        System.out.print("Enter the price of tipex: ");
+        double tipexPrice = scanner.nextDouble();
+        
+        System.out.print("Enter the quantity of tipex: ");
+        int tipexQuantity = scanner.nextInt();
+        
+        System.out.print("Enter the price of penggaris: ");
+        double penggarisPrice = scanner.nextDouble();
+        
+        System.out.print("Enter the quantity of penggaris: ");
+        int penggarisQuantity = scanner.nextInt();
+        
+        // Perform calculations or operations using the input values
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+
+HasilNya:
+-------------------------------------------------------------------------------------------------------------------------------------
+Kata ke-2: pensil
+Kata ke-3: pulpen
+Kata ke-4: tipex
+Kata ke-5: penggaris
+
+Kata-kata yang dimasukan
+null
+buku
+pensil
+pulpen
+tipex
+penggaris
+-------------------------------------------------------------------------------------------------------------------------------------
