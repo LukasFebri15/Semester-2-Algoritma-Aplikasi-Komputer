@@ -1,0 +1,73 @@
+1. Buatlah flowcart untuk menghitung indeksNilai dengan kriteria
+
+0-55 dapat nilai D
+
+55-65 dapat nilai C
+
+65-75 dapat nilai B
+
+>75 dapat nilai A
+
+ilustrasiNya
+-------------------------------------------------------------------------------------------------------------------------------------------
+Tidak ada hasil penelusuran yang relevan untuk membuat bagan alur untuk menghitung nilai berdasarkan rentang skor tertentu. Namun, berikut
+adalah contoh cara membuat flowchart untuk menghitung biaya parkir berdasarkan input waktu masuk, waktu keluar, dan tarif per jam:
+
+1. [ Start ]
+         ↓
+2. [ Masukan waktu masuk ]
+         ↓
+3. [ Masukkan waktu keluar ]
+         ↓
+4. [ Masukkan tarif per jam ]
+         ↓
+5. [ Hitung durasi parkir = waktu keluar - waktu masuk ]
+         ↓
+6. [ Hitung biaya parkir = durasi parkir * tarif per jam ]
+         ↓
+7. [ Jika biaya parkir kurang dari biaya minimum, tetapkan biaya parkir ke biaya minimum ]
+         ↓
+8. [ Menampilkan durasi parkir dan biaya parkir ]
+         ↓
+9. [ End ]
+
+Bagan alir ini dapat dimodifikasi untuk menghitung nilai berdasarkan rentang skor yang diberikan dengan mengubah variabel
+input dan menambahkan pernyataan bersyarat untuk menentukan nilai berdasarkan rentang skor.
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+2. Cara Menghitung PPH dalam link berikut ini: https://www.ocbcnisp.com/id/article/2021/10/19/cara-menghitung-pph
+
+KodeNya
+-------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class IncomeTaxCalculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter your income: ");
+        double income = input.nextDouble();
+
+        double pph = 0;
+        double ptkp = 54000000;
+        double pp = 0.05;
+
+        if (income <= 50000000) {
+            pph = (income - ptkp) * pp;
+        } else if (income <= 250000000) {
+            pph = ((income - 50000000) * 0.15) + ((50000000 - ptkp) * pp);
+        } else if (income <= 500000000) {
+            pph = ((income - 250000000) * 0.25) + ((200000000 * 0.15) + ((50000000 - ptkp) * pp));
+        } else if (income <= 1000000000) {
+            pph = ((income - 500000000) * 0.3) + ((250000000 * 0.25) + ((200000000 * 0.15) + ((50000000 - ptkp) * pp)));
+        } else {
+            pph = ((income - 1000000000) * 0.35) + ((500000000 * 0.3) + ((250000000 * 0.25) + ((200000000 * 0.15) + ((50000000 - ptkp) * pp))));
+        }
+
+        System.out.println("Your income tax is: " + pph);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+itu lah semua jawabanya no 1 dan no 2, terimakasih.
